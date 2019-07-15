@@ -9,15 +9,20 @@ ReLUs()are not zero-centered activation functions and it leads to shift the bias
              
              
 Firstly, the cifar-100 dataset is loaded after importing the libraries.
+
 Parameters are initialised.
+
 Converting the labels in the data set into categorical matrix structure from 1-dim numpy array structure.
+
 Normalising the images in the dataset.
+
 Data Augmentation
-     One of the major reasons for overfitting is that you don’t have enough data to train your network. Apart from regularization,            another very effective way to counter Overfitting is Data Augmentation. It is the process of artificially creating more images from      the images you already have by changing the size, orientation etc of the image. It can be a tedious task but fortunately, this can      be done in Keras using the ImageDataGenerator.Now, we will flow the data using our custom generator object for cropping the images. 
-     
-     Additionally, the images are padded with four 0 pixels at all borders (2D zero padding layer at the top of the model).The model         should be trained 32x32 random crops with random horizontal flipping. That’s all for data augmentation.
+
+One of the major reasons for overfitting is that you don’t have enough data to train your network. Apart from regularization,another very effective way to counter Overfitting is Data Augmentation. It is the process of artificially creating more images from the images you already have by changing the size, orientation etc of the image. It can be a tedious task but fortunately, this can be done in Keras using the ImageDataGenerator.Now, we will flow the data using our custom generator object for cropping the images. 
+Additionally, the images are padded with four 0 pixels at all borders (2D zero padding layer at the top of the model).The model should be trained 32x32 random crops with random horizontal flipping. That’s all for data augmentation.
      
 Building the model
+
     The CNN Architecture:
     18 convolutional layers arranged in stacks of
         (layers x units x receptive fields)
@@ -32,7 +37,8 @@ Building the model
     Finally the layers are flattened and softmax activation is applied.
     
 Compiling the model
-     Categorical cross-entropy has been picked as loss function since we have 100 category labels in the data set, and we already prepared the labels in the categorical matrix structure.Stochastic Gradient Descent with Momentum algorithm is used to optimize the weights on the back-propagation.Momentum term has been set to 0.9.
+
+Categorical cross-entropy has been picked as loss function since we have 100 category labels in the data set, and we already prepared the labels in the categorical matrix structure.Stochastic Gradient Descent with Momentum algorithm is used to optimize the weights on the back-propagation.Momentum term has been set to 0.9.
      
      
 The model is evaluated on the test data and accuracy is detelmined.
